@@ -1,3 +1,11 @@
+BipedalWalker/
+
+*.png
+*.gif
+
+!fitness-plot.png
+!bipedalwalker.gif
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
