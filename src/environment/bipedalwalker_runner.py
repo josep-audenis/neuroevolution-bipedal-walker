@@ -10,7 +10,7 @@ import os
 from evolution.neural_network import NeuralNetwork
 
 def evaluate_genome(genome, input_size, hidden1_size, hidden2_size, output_size, n_genome, generation, seed, render=False):
-    render = render and (generation == 0 or (generation+1) % 100 == 0)
+    render = render and (generation == 0 or (generation+1) % 1000 == 0)
 
     env = gym.make("BipedalWalker-v3", render_mode="rgb_array" if render else None)
     obs, _ = env.reset(seed=seed)
@@ -18,7 +18,7 @@ def evaluate_genome(genome, input_size, hidden1_size, hidden2_size, output_size,
     done = False
 
     if render:
-        tmp_gif_path = f"assets/gifs/bipedalwalker_{generation}.{n_genome}.{seed}.gif"
+        tmp_gif_path = f"assets/gifs/bipedalwalker_{generation + 1}.{n_genome + 1}.{seed}.gif"
         writer = imageio.get_writer(tmp_gif_path, fps=45, loop=0)
 
     nn = NeuralNetwork(input_size, hidden1_size, hidden2_size, output_size, genome)
@@ -45,7 +45,7 @@ def evaluate_genome(genome, input_size, hidden1_size, hidden2_size, output_size,
     if render:
         writer.close()
         gc.collect()
-        final_gif_path = f"assets/gifs/bipedalwalker_{generation}.{n_genome}.{seed}_{total_reward:.2f}.gif"
+        final_gif_path = f"assets/gifs/bipedalwalker_{generation + 1}.{n_genome + 1}.{seed}_{total_reward:.2f}.gif"
         os.rename(tmp_gif_path, final_gif_path)
 
     return total_reward
