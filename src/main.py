@@ -18,13 +18,13 @@ def main():
     output_size = 4
 
     population_size = 50
-    mutation_rate = 0.05
-    mutation_strength = 0.2
+    mutation_rate = 0.1
+    mutation_strength = 0.3
     
     crossover_rate = 0.75
-    tournament_size = 5
-    elitism = 2
-    generations = 10000
+    tournament_size = 7
+    elitism = 4
+    generations = 20000
 
     render = True if arg.render else False
     
