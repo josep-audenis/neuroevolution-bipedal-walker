@@ -1,5 +1,7 @@
 BipedalWalker/
 
+.venv
+
 *.json
 *.png
 *.gif
